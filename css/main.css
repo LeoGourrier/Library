@@ -35,10 +35,10 @@
 	text-align: center;
 }
 #theHeader button {
-	background-color: blue;
+	background-color: #e24c4a;
 	border: none;
 	border-radius: 4px;
-	width: 270px;
+	width: 250px;
 	color: white;
 	font-weight: bold;
 	font-size: 30px;
