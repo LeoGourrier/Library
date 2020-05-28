@@ -12,10 +12,40 @@
     <div id="theGrid">
         <div id="theHeader">
             <h1>Library</h1>
-            <button>Add Book</button>
+            <button id="addBtn">Add Book</button>
+            <div id="theForm" class="openedForm">
+                <form>
+                    <div id="theTitle">
+                        <label>Title</label>
+                        <input type="text" placeholder="Harry Potter">
+                    </div>
+                    <div id="theAuthor">
+                        <label>Author</label>
+                        <input type="text" placeholder="J.K. Rowling">
+                    </div>
+                    <div id="theYear">
+                        <label>Year</label>
+                        <input type="number" placeholder="1996">
+                    </div>
+                    <div id="thePages">
+                        <label>Pages</label>
+                        <input type="number" placeholder="234">
+                    </div>
+                    <div id="theRead">
+                        <label>Read</label>
+                        <select>
+                            <option>I have NOT read this book</option>
+                            <option>I have read this book</option>
+                        </select>
+                    </div>
+                    <div id="submitDiv">
+                        <button id="submitBtn">Submit Book</button>
+                    </div>
+                </form>
+            </div>
         </div>
         <div id="theCatalog"></div>
-    </div>
+    </>
 
     <script src="js/main.js">
 
