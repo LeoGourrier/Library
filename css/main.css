@@ -111,7 +111,7 @@
 	}
 	.books {
 		width: 300px;
-		height: 450px;
+		height: 400px;
 		margin: auto;
 		margin-top: 20px;
 		border-radius: 6px;
@@ -121,7 +121,7 @@
 	.bookTitles {
 		padding-top: 40px;
 		text-align: center;
-		font-size: 30px;
+		font-size: 25px;
 		font-weight: bolder;
 		color: white;
 	}
@@ -142,7 +142,7 @@
 		width: 100%;
 		height: 30px;
 		top: 0;
-		transform: translateY(1350%);
+		transform: translateY(1150%);
 		position: absolute;
 	}
 	.bookFooters h4 {
@@ -202,8 +202,7 @@
 		margin-top: 71px;
 	}
 	.openedForm {
-		background-color: rgba(0, 0, 0, 0.774);
-		height: 380px; /*opened Form*/
+		height: 85px; /*opened Form*/
 		position: absolute;
 	}
 	.closedForm {
@@ -215,24 +214,24 @@
 	}
 	#theAuthor {
 		/*TESTING COLORS WITH INPUTS*/
-		width: 100%;
+		width: 30%;
 	}
 	#theTitle {
 		/*TESTING COLORS WITH INPUTS*/
-		width: 100%;
+		width: 30%;
 	}
 	#theYear {
 		/*TESTING COLORS WITH INPUTS*/
-		width: 50%;
+		width: 10%;
 	}
 	#thePages {
 		/*TESTING COLORS WITH INPUTS*/
-		width: 50%;
+		width: 10%;
 	}
 	#theRead {
 		/*TESTING COLORS WITH INPUTS*/
 		float: left;
-		width: 100%;
+		width: 10%;
 	}
 	#theForm label {
 		color: white;
@@ -240,7 +239,7 @@
 		display: block;
 		font-size: 12px;
 		font-weight: bold;
-		margin-left: 10px;
+		margin-left: 4px;
 	}
 	#theAuthor input,
 	#theTitle input,
@@ -250,17 +249,16 @@
 	}
 	#theForm input,
 	#theRead select {
-		width: 90%;
+		width: 88%;
 		margin-top: 3px;
 		padding: 10px;
 		border-radius: 4px;
 		border: none;
-		margin-left: 10px;
+		margin-left: 4px;
 	}
 
 	#submitDiv {
-		width: 100%;
-		height: 50px;
+		width: 10%;
 	}
 	#submitBtn {
 		background-color: orangered;
@@ -268,9 +266,10 @@
 		font-weight: bold;
 		border: none;
 		border-radius: 4px;
-		font-size: 20px;
-		width: 60%;
-		transform: translate(35%, 35%);
+		font-size: 13px;
+		transform: translate(6%, 41%);
+		width: 90%;
+		padding: 5px 0px;
 		text-transform: uppercase;
 		animation-name: addButton;
 		animation-duration: 8s;

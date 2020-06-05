@@ -16,10 +16,14 @@ function toggleAddBtn() {
 			//change class to openedForm
 			theForm.classList.remove('closedForm');
 			theForm.classList.add('openedForm');
+			theForm.classList.add('animate__animated');
+			theForm.classList.add('animate__bounceInDown');
 			document.querySelector('#theForm').innerHTML = myForm;
 		} else {
 			//if Form does exist, remove it
 			//change class to closedForm
+			theForm.classList.remove('animate__animated');
+			theForm.classList.remove('animate__bounceInDown');
 			theForm.classList.remove('openedForm');
 			theForm.classList.add('closedForm');
 			document.querySelector('#theForm').innerHTML = '';
@@ -57,8 +61,8 @@ let myForm = `
                     <div id="theRead">
                         <label>Read</label>
                         <select>
-                            <option>I have NOT read this book</option>
-                            <option>I have read this book</option>
+                            <option>NO</option>
+                            <option>YES</option>
                         </select>
                     </div>
                     <div id="submitDiv">
