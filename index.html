@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Adamina&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Library</title>
 </head>
 <body>
@@ -13,39 +14,61 @@
         <div id="theHeader">
             <h1>Library</h1>
             <button id="addBtn">Add Book</button>
-            <div id="theForm" class="openedForm">
-                <form>
-                    <div id="theTitle">
-                        <label>Title</label>
-                        <input type="text" placeholder="Harry Potter">
-                    </div>
-                    <div id="theAuthor">
-                        <label>Author</label>
-                        <input type="text" placeholder="J.K. Rowling">
-                    </div>
-                    <div id="theYear">
-                        <label>Year</label>
-                        <input type="number" placeholder="1996">
-                    </div>
-                    <div id="thePages">
-                        <label>Pages</label>
-                        <input type="number" placeholder="234">
-                    </div>
-                    <div id="theRead">
-                        <label>Read</label>
-                        <select>
-                            <option>I have NOT read this book</option>
-                            <option>I have read this book</option>
-                        </select>
-                    </div>
-                    <div id="submitDiv">
-                        <button id="submitBtn">Submit Book</button>
-                    </div>
-                </form>
+            <div id="theForm" class="closedForm"></div>
+        </div>
+        <div id="theCatalog">
+            <div class="books">
+                <h1 class="bookTitles">Harry Potter</h1>
+                <h2 class="bookAuthors">J.K. Rowling</h2>
+                <h3 class="bookPages">234 pages</h3>
+                <div class="bookFooters">
+                    <h4>Read</h4>
+                    <i class="material-icons">check</i>
+                    <i class="bookDeletes material-icons">delete</i>
+                </div>
+            </div>
+            <div class="books">
+                <h1 class="bookTitles">Harry Potter</h1>
+                <h2 class="bookAuthors">J.K. Rowling</h2>
+                <h3 class="bookPages">234 pages</h3>
+                <div class="bookFooters">
+                    <h4>Not Read</h4>
+                    <i class="material-icons">check</i>
+                    <i class="bookDeletes material-icons">delete</i>
+                </div>
+            </div>
+            <div class="books">
+                <h1 class="bookTitles">Harry Potter</h1>
+                <h2 class="bookAuthors">J.K. Rowling</h2>
+                <h3 class="bookPages">234 pages</h3>
+                <div class="bookFooters">
+                    <h4>Read</h4>
+                    <i class="material-icons">check</i>
+                    <i class="bookDeletes material-icons">delete</i>
+                </div>
+            </div>
+            <div class="books">
+                <h1 class="bookTitles">Harry Potter</h1>
+                <h2 class="bookAuthors">J.K. Rowling</h2>
+                <h3 class="bookPages">234 pages</h3>
+                <div class="bookFooters">
+                    <h4>Not Read</h4>
+                    <i class="material-icons">check</i>
+                    <i class="bookDeletes material-icons">delete</i>
+                </div>
+            </div>
+            <div class="books">
+                <h1 class="bookTitles">Harry Potter</h1>
+                <h2 class="bookAuthors">J.K. Rowling</h2>
+                <h3 class="bookPages">234 pages</h3>
+                <div class="bookFooters">
+                    <h4>Not Read</h4>
+                    <i class="material-icons">check</i>
+                    <i class="bookDeletes material-icons">delete</i>
+                </div>
             </div>
         </div>
-        <div id="theCatalog"></div>
-    </>
+    </div>
 
     <script src="js/main.js">
 
