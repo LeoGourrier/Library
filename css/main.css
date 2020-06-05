@@ -2,7 +2,7 @@
 	box-sizing: border-box;
 	font-family: 'Adamina', serif;
 }
-@media only screen and (max-width: 680px) and (orientation: portrait) {
+@media only screen and (max-width: 736px) and (orientation: portrait) {
 	/*PHONES*/
 	#theHeader h1 {
 		font-weight: bold;
@@ -165,9 +165,9 @@
 		transition-duration: 1s;
 	}
 }
-@media only screen and (max-width: 680px) and (orientation: landscape) {
+@media only screen and (max-width: 736px) and (orientation: landscape) {
 	/*PHONES*/
-	#theGrid {
+	#theCatalog {
 		display: grid;
 		grid-template-columns: 1 fr;
 	}
@@ -332,7 +332,7 @@
 		transition-duration: 1s;
 	}
 }
-@media only screen and (min-width: 681px) and (orientation: portrait) {
+@media only screen and (min-width: 768px) and (orientation: portrait) {
 	/*TABLETS*/
 	#theGrid {
 		min-height: 1024px;
@@ -503,7 +503,7 @@
 	}
 }
 
-@media only screen and (min-width: 681px) and (orientation: landscape) {
+@media only screen and (min-width: 768px) and (orientation: landscape) {
 	/*TABLETS*/
 	#theGrid {
 		min-height: 900px;
