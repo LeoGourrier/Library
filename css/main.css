@@ -147,10 +147,15 @@
 	}
 	.bookFooters h4 {
 		height: 100%;
-		width: 80%;
+		width: 40%;
 		float: left;
 		padding-left: 10px;
 		color: white;
+		font-weight: bold;
+		background-color: #e9100d;
+		margin-right: 120px;
+		border-top-right-radius: 5px;
+		border-bottom-right-radius: 5px;
 	}
 	.bookfooters i {
 		display: block;
@@ -169,7 +174,7 @@
 	/*PHONES*/
 	#theCatalog {
 		display: grid;
-		grid-template-columns: 1 fr;
+		grid-template-columns: repeat(2, 1fr);
 	}
 	#theHeader h1 {
 		font-weight: bold;
@@ -313,10 +318,15 @@
 	}
 	.bookFooters h4 {
 		height: 100%;
-		width: 80%;
+		width: 40%;
 		float: left;
 		padding-left: 10px;
 		color: white;
+		font-weight: bold;
+		background-color: #e9100d;
+		margin-right: 120px;
+		border-top-right-radius: 5px;
+		border-bottom-right-radius: 5px;
 	}
 	.bookfooters i {
 		display: block;
@@ -483,10 +493,15 @@
 	}
 	.bookFooters h4 {
 		height: 100%;
-		width: 70%;
+		width: 60%;
 		float: left;
 		padding-left: 10px;
 		color: white;
+		font-weight: bold;
+		background-color: #e9100d;
+		margin-right: 10px;
+		border-top-right-radius: 5px;
+		border-bottom-right-radius: 5px;
 	}
 	.bookfooters i {
 		display: block;
@@ -654,10 +669,15 @@
 	}
 	.bookFooters h4 {
 		height: 100%;
-		width: 70%;
+		width: 60%;
 		float: left;
 		padding-left: 10px;
 		color: white;
+		font-weight: bold;
+		background-color: #e9100d;
+		margin-right: 10px;
+		border-top-right-radius: 5px;
+		border-bottom-right-radius: 5px;
 	}
 	.bookfooters i {
 		display: block;
@@ -825,10 +845,15 @@
 	}
 	.bookFooters h4 {
 		height: 100%;
-		width: 70%;
+		width: 60%;
 		float: left;
 		padding-left: 10px;
 		color: white;
+		font-weight: bold;
+		background-color: #e9100d;
+		margin-right: 10px;
+		border-top-right-radius: 5px;
+		border-bottom-right-radius: 5px;
 	}
 	.bookfooters i {
 		display: block;
