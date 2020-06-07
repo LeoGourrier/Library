@@ -114,7 +114,7 @@
 	}
 	.books {
 		width: 300px;
-		height: 400px;
+		height: 350px;
 		margin: auto;
 		margin-top: 20px;
 		border-radius: 6px;
@@ -145,7 +145,7 @@
 		width: 100%;
 		height: 30px;
 		top: 0;
-		transform: translateY(1150%);
+		transform: translateY(980%);
 		position: absolute;
 	}
 	.bookFooters h4 {
@@ -196,6 +196,7 @@
 		min-height: 414px;
 	}
 	#theCatalog {
+		margin-top: 20px;
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 	}
@@ -412,6 +413,7 @@
 		/*end of button positioning*/
 	}
 	#theCatalog {
+		margin-top: 80px;
 		display: grid;
 		grid-template-columns: repeat(3, 1fr) !important;
 	}
@@ -605,6 +607,7 @@
 		/*end of button positioning*/
 	}
 	#theCatalog {
+		margin-top: 80px;
 		display: grid;
 		grid-template-columns: repeat(4, 1fr) !important;
 	}
@@ -798,6 +801,7 @@
 		/*end of button positioning*/
 	}
 	#theCatalog {
+		margin-top: 80px;
 		display: grid;
 		grid-template-columns: repeat(5, 1fr) !important;
 	}

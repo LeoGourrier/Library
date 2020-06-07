@@ -1,3 +1,6 @@
+let library = [];
+let drawings = '';
+
 function stickyHeader() {
 	if (window.pageYOffset > sticky) {
 		header.classList.add('sticky');
@@ -80,10 +83,15 @@ function render() {
 	let theCatalog = document.querySelector('#theCatalog');
 	theCatalog.innerHTML = '';
 	drawings = '';
-	library.map((x) => drawBook(x));
-	theCatalog.innerHTML = drawings;
+	updateLocalStorage();
+	libraryToHTML();
 	enableRead();
 	enableDelete();
+}
+function libraryToHTML() {
+	let theCatalog = document.querySelector('#theCatalog');
+	library.map((x) => drawBook(x));
+	theCatalog.innerHTML = drawings;
 }
 function enableRead() {
 	let reads = Array.from(document.querySelectorAll('.read'));
@@ -116,6 +124,10 @@ function toggleDeleteListeners(x) {
 		x.classList.add('animate__tada');
 		let obj = library[x.id.replace('delete', '')];
 		library = library.filter((e) => e !== obj);
+		if (library.length == 0) {
+			//if library is empty, clear storage.
+			window.localStorage.setItem('library', '[]');
+		}
 		updateIndexes();
 		setTimeout(function() {
 			render();
@@ -160,8 +172,95 @@ function drawBook(b) {
 	drawings += newBook;
 	//console.log(drawings);
 }
-let library = [];
-let drawings = '';
+function storageAvailable(type) {
+	var storage;
+	try {
+		storage = window[type];
+		var x = '__storage_test__';
+		storage.setItem(x, x);
+		storage.removeItem(x);
+		return true;
+	} catch (e) {
+		return (
+			e instanceof DOMException &&
+			// everything except Firefox
+			(e.code === 22 ||
+				// Firefox
+				e.code === 1014 ||
+				// test name field too, because code might not be present
+				// everything except Firefox
+				e.name === 'QuotaExceededError' ||
+				// Firefox
+				e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
+			// acknowledge QuotaExceededError only if there's something already stored
+			(storage && storage.length !== 0)
+		);
+	}
+}
+function updateLocalStorage() {
+	if (storageAvailable('localStorage')) {
+		//console.log('localStorage is available');
+		let myStorage = window.localStorage;
+		if (myStorage.length == 0) {
+			//if localStorage is empty
+			if (library.length == 0) {
+				//if localStorage && library is empty
+				//adding books to the webpage
+				let b1 = new Book('Becoming', 'Michelle Obama', 2018, 400, 'YES');
+				addBookToLibrary(b1);
+				b1 = new Book('Oh, The Places Youll Go', 'Dr. Seuss', 1990, 20, 'YES');
+				addBookToLibrary(b1);
+				b1 = new Book("Harry Potter & The Philospher's Stone", 'J.K. Rowling', 1997, 246, 'YES');
+				addBookToLibrary(b1);
+				b1 = new Book('Clean Code', 'Cecil Martin', 2008, 450, 'YES');
+				addBookToLibrary(b1);
+				//console.log('if localStorage && library is empty');
+				//console.log(myStorage);
+			} else {
+				//if localStorage is empty && library has books
+				myStorage.setItem('firstTime', 'true');
+				myStorage.setItem('library', JSON.stringify(library));
+				//console.log('if localStorage is empty && library has books');
+				//console.log(myStorage);
+			}
+		} else {
+			//if localStorage has something
+			if (library.length == 0) {
+				//if localStorage has something && library is empty
+				if (myStorage.getItem('firstTime') == 'true') {
+					//if first time
+					library = JSON.parse(myStorage.getItem('library'));
+					myStorage.setItem('firstTime', 'false');
+					//console.log('first time');
+				} else {
+					//if not first time
+					//some error here when i try to delete. it doesnt
+					library = JSON.parse(myStorage.getItem('library'));
+					//console.log('not first time');
+				}
+				//console.log('if localStorage has books && library is empty');
+				//console.log(myStorage);
+			} else {
+				//if localStorage && library has books
+				myStorage.setItem('library', JSON.stringify(library));
+				library = JSON.parse(myStorage.getItem('library'));
+				//console.log('if localStorage && library has books');
+				//console.log(myStorage);
+			}
+		}
+	} else {
+		//console.log('localStorage is not available');
+		//adding books to the webpage
+		let b1 = new Book('Becoming', 'Michelle Obama', 2018, 400, 'YES');
+		addBookToLibrary(b1);
+		b1 = new Book('Oh, The Places Youll Go', 'Dr. Seuss', 1990, 20, 'YES');
+		addBookToLibrary(b1);
+		b1 = new Book("Harry Potter & The Philospher's Stone", 'J.K. Rowling', 1997, 246, 'YES');
+		addBookToLibrary(b1);
+		b1 = new Book('Clean Code', 'Cecil Martin', 2008, 450, 'YES');
+		addBookToLibrary(b1);
+	}
+}
 //start the app
 let myForm = `
                 <form onsubmit="return false;">
@@ -199,13 +298,5 @@ window.onscroll = function() {
 let header = document.getElementById('theHeader');
 let sticky = header.offsetTop;
 toggleAddBtn();
-//adding books to the webpage
-let b1 = new Book('Harry Potter', 'J.K. Rowling', 1996, 234, 'YES');
-addBookToLibrary(b1);
-b1 = new Book('Harry Potter', 'J.K. Rowling', 1996, 234, 'YES');
-addBookToLibrary(b1);
-b1 = new Book('Harry Potter', 'J.K. Rowling', 1996, 234, 'YES');
-addBookToLibrary(b1);
-b1 = new Book('Harry Potter', 'J.K. Rowling', 1996, 234, 'YES');
-addBookToLibrary(b1);
 render();
+//window.localStorage.clear();
