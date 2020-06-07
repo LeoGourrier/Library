@@ -4,6 +4,9 @@
 }
 @media only screen and (max-width: 736px) and (orientation: portrait) {
 	/*PHONES*/
+	#theGrid {
+		min-height: 736px;
+	}
 	#theHeader h1 {
 		font-weight: bold;
 		font-size: 35px;
@@ -152,7 +155,6 @@
 		padding-left: 10px;
 		color: white;
 		font-weight: bold;
-		background-color: #e9100d;
 		margin-right: 120px;
 		border-top-right-radius: 5px;
 		border-bottom-right-radius: 5px;
@@ -161,17 +163,38 @@
 		display: block;
 		height: 100%;
 	}
-	.material-icons {
-		color: white !important;
-		opacity: .4 !important;
+	.read {
+		color: white;
 	}
-	.material-icons:hover {
+	.readOff {
+		opacity: .4;
+	}
+	.readOn {
+		opacity: 1;
+	}
+	.read:hover {
+		opacity: 1 !important;
+		transition-duration: 1s;
+	}
+	.delete {
+		color: white;
+	}
+	.deleteOff {
+		opacity: .4;
+	}
+	.deleteOn {
+		opacity: 1;
+	}
+	.delete:hover {
 		opacity: 1 !important;
 		transition-duration: 1s;
 	}
 }
 @media only screen and (max-width: 736px) and (orientation: landscape) {
 	/*PHONES*/
+	#theGrid {
+		min-height: 414px;
+	}
 	#theCatalog {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
@@ -323,7 +346,6 @@
 		padding-left: 10px;
 		color: white;
 		font-weight: bold;
-		background-color: #e9100d;
 		margin-right: 120px;
 		border-top-right-radius: 5px;
 		border-bottom-right-radius: 5px;
@@ -332,11 +354,29 @@
 		display: block;
 		height: 100%;
 	}
-	.material-icons {
-		color: white !important;
-		opacity: .4 !important;
+	.read {
+		color: white;
 	}
-	.material-icons:hover {
+	.readOff {
+		opacity: .4;
+	}
+	.readOn {
+		opacity: 1;
+	}
+	.read:hover {
+		opacity: 1 !important;
+		transition-duration: 1s;
+	}
+	.delete {
+		color: white;
+	}
+	.deleteOff {
+		opacity: .4;
+	}
+	.deleteOn {
+		opacity: 1;
+	}
+	.delete:hover {
 		opacity: 1 !important;
 		transition-duration: 1s;
 	}
@@ -498,7 +538,6 @@
 		padding-left: 10px;
 		color: white;
 		font-weight: bold;
-		background-color: #e9100d;
 		margin-right: 10px;
 		border-top-right-radius: 5px;
 		border-bottom-right-radius: 5px;
@@ -507,11 +546,29 @@
 		display: block;
 		height: 100%;
 	}
-	.material-icons {
-		color: white !important;
-		opacity: .4 !important;
+	.read {
+		color: white;
 	}
-	.material-icons:hover {
+	.readOff {
+		opacity: .4;
+	}
+	.readOn {
+		opacity: 1;
+	}
+	.read:hover {
+		opacity: 1 !important;
+		transition-duration: 1s;
+	}
+	.delete {
+		color: white;
+	}
+	.deleteOff {
+		opacity: .4;
+	}
+	.deleteOn {
+		opacity: 1;
+	}
+	.delete:hover {
 		opacity: 1 !important;
 		transition-duration: 1s;
 	}
@@ -674,7 +731,6 @@
 		padding-left: 10px;
 		color: white;
 		font-weight: bold;
-		background-color: #e9100d;
 		margin-right: 10px;
 		border-top-right-radius: 5px;
 		border-bottom-right-radius: 5px;
@@ -683,11 +739,29 @@
 		display: block;
 		height: 100%;
 	}
-	.material-icons {
-		color: white !important;
-		opacity: .4 !important;
+	.read {
+		color: white;
 	}
-	.material-icons:hover {
+	.readOff {
+		opacity: .4;
+	}
+	.readOn {
+		opacity: 1;
+	}
+	.read:hover {
+		opacity: 1 !important;
+		transition-duration: 1s;
+	}
+	.delete {
+		color: white;
+	}
+	.deleteOff {
+		opacity: .4;
+	}
+	.deleteOn {
+		opacity: 1;
+	}
+	.delete:hover {
 		opacity: 1 !important;
 		transition-duration: 1s;
 	}
@@ -850,7 +924,6 @@
 		padding-left: 10px;
 		color: white;
 		font-weight: bold;
-		background-color: #e9100d;
 		margin-right: 10px;
 		border-top-right-radius: 5px;
 		border-bottom-right-radius: 5px;
@@ -859,11 +932,29 @@
 		display: block;
 		height: 100%;
 	}
-	.material-icons {
-		color: white !important;
-		opacity: .4 !important;
+	.read {
+		color: white;
 	}
-	.material-icons:hover {
+	.readOff {
+		opacity: .4;
+	}
+	.readOn {
+		opacity: 1;
+	}
+	.read:hover {
+		opacity: 1 !important;
+		transition-duration: 1s;
+	}
+	.delete {
+		color: white;
+	}
+	.deleteOff {
+		opacity: .4;
+	}
+	.deleteOn {
+		opacity: 1;
+	}
+	.delete:hover {
 		opacity: 1 !important;
 		transition-duration: 1s;
 	}
@@ -889,6 +980,12 @@
 }
 .openedForm {
 	background-color: rgba(0, 0, 0, 0.87);
+}
+.readBG {
+	background-color: rgb(48, 124, 48);
+}
+.notReadBG {
+	background-color: #e9100d;
 }
 @keyframes addButton {
 	0% {

@@ -13,24 +13,32 @@ function toggleAddBtn() {
 		if (theForm.firstChild === null || theForm.firstChild.length == 13) {
 			//if Form doesn't exist, add it
 			//change class to openedForm
-			theForm.classList.remove('closedForm');
-			theForm.classList.add('openedForm');
-			theForm.classList.add('animate__animated');
-			theForm.classList.add('animate__bounceInDown');
-			document.querySelector('#theForm').innerHTML = myForm;
+			openForm();
 			submitBook();
 		} else {
 			//if Form does exist, remove it
 			//change class to closedForm
-			theForm.classList.remove('animate__animated');
-			theForm.classList.remove('animate__bounceInDown');
-			theForm.classList.remove('openedForm');
-			theForm.classList.add('closedForm');
-			document.querySelector('#theForm').innerHTML = '';
+			closeForm();
 		}
 
 		//console.log('addBook has ended');
 	});
+}
+function closeForm() {
+	let theForm = document.querySelector('#theForm');
+	theForm.classList.remove('animate__animated');
+	theForm.classList.remove('animate__bounceInDown');
+	theForm.classList.remove('openedForm');
+	theForm.classList.add('closedForm');
+	document.querySelector('#theForm').innerHTML = '';
+}
+function openForm() {
+	let theForm = document.querySelector('#theForm');
+	theForm.classList.remove('closedForm');
+	theForm.classList.add('openedForm');
+	theForm.classList.add('animate__animated');
+	theForm.classList.add('animate__bounceInDown');
+	document.querySelector('#theForm').innerHTML = myForm;
 }
 function submitBook() {
 	let submitBtn = document.querySelector('#submitBtn');
@@ -41,6 +49,7 @@ function submitBook() {
 		let newPages = document.querySelector('#newPages').value;
 		let newRead = document.querySelector('#newRead').value;
 		let newBook = new Book(newTitle, newAuthor, newYear, newPages, newRead);
+		closeForm();
 		addBookToLibrary(newBook);
 		render();
 		//console.log(library);
@@ -73,18 +82,78 @@ function render() {
 	drawings = '';
 	library.map((x) => drawBook(x));
 	theCatalog.innerHTML = drawings;
+	enableRead();
+	enableDelete();
+}
+function enableRead() {
+	let reads = Array.from(document.querySelectorAll('.read'));
+	reads.map((x) => toggleReadListeners(x));
+}
+function toggleReadListeners(x) {
+	x.addEventListener('click', function() {
+		let obj = library[x.id.replace('read', '')];
+		obj.read = !obj.read;
+		x.parentNode.childNodes[1].innerHTML = '';
+		setTimeout(function() {
+			render();
+			let newX = document.getElementById(x.id).parentNode.childNodes[1];
+			newX.classList.add('animate__animated');
+			newX.classList.add('animate__fadeInRight');
+			let i = newX.nextSibling.nextSibling;
+			i.classList.add('animate__animated');
+			i.classList.add('animate__tada');
+		}, 250);
+	});
+}
+function enableDelete() {
+	let deletes = Array.from(document.querySelectorAll('.delete'));
+	deletes.map((x) => toggleDeleteListeners(x));
+}
+function toggleDeleteListeners(x) {
+	x.addEventListener('click', function() {
+		x.classList.remove('deleteOff');
+		x.classList.add('animate__animated');
+		x.classList.add('animate__tada');
+		let obj = library[x.id.replace('delete', '')];
+		library = library.filter((e) => e !== obj);
+		updateIndexes();
+		setTimeout(function() {
+			render();
+			let replacmentIndex = x.id.replace('delete', '');
+			let lastIndex = library.length - 1;
+			if (window.innerWidth <= 414) {
+				for (replacmentIndex = replacmentIndex; replacmentIndex <= lastIndex; replacmentIndex++) {
+					let currentBook = document.getElementById('book' + replacmentIndex);
+					currentBook.classList.add('animate__animated');
+					currentBook.classList.add('animate__slideInUp');
+				}
+			} else {
+				for (replacmentIndex = replacmentIndex; replacmentIndex <= lastIndex; replacmentIndex++) {
+					let currentBook = document.getElementById('book' + replacmentIndex);
+					currentBook.classList.add('animate__animated');
+					currentBook.classList.add('animate__slideInRight');
+				}
+			}
+			//console.log(document.getElementById('book' + x));
+		}, 500);
+	});
+}
+function updateIndexes() {
+	for (book in library) {
+		library[book].index = book;
+	}
 }
 function drawBook(b) {
 	let theCatalog = document.querySelector('#theCatalog');
 	let newBook = `
-			<div class="books">
+			<div id="book${b.index}" class="books">
                 <h1 class="bookTitles">${b.title}</h1>
                 <h2 class="bookAuthors">${b.author}</h2>
                 <h3 class="bookPages">${b.pages} pages</h3>
                 <div class="bookFooters">
-                    <h4>${b.read ? 'Read' : 'Not Read'}</h4>
-                    <i class="read material-icons">check</i>
-                    <i class="delete bookDeletes material-icons">delete</i>
+                    <h4 class="${b.read ? 'readBG' : 'notReadBG'}">${b.read ? 'Read' : 'Not Read'}</h4>
+                    <i id="read${b.index}" class="read ${b.read ? 'readOn' : 'readOff'} material-icons">check</i>
+                    <i id="delete${b.index}" class="delete deleteOff bookDeletes material-icons">delete</i>
                 </div>
             </div>
 	`;
